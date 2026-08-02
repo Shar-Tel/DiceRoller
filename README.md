@@ -1,1 +1,4 @@
 Programa para Arduino que permite simular el lanzamiento de distintos tipos de dados. Está preparado para su uso con una pantalla con 4 digitos de 7 segmentos. También está preparado para su uso con 3 botones: uno elige el número de caras del dado a lanzar (por defecto es de 100), otro lanza el dado y el último tira iniciativa según una variante del juego de rol Rolemaster (lanza 2d10 y suma el resultado, si alguno de los dados saca 10 lo vuelve a lanzar y también suma esa tirada al resultado) 
+
+
+Arduino program that simulates rolling different types of dice. It is designed for use with a 4-digit 7-segment display. It also supports 3 buttons: one selects the number of faces of the die to roll (default is 100), another rolls the die, and the last rolls initiative according to a variant of the Rolemaster tabletop RPG (rolls 2d10 and sums the result; if any die shows 10 it is rerolled and that roll is added to the result).

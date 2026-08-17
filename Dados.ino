@@ -5,7 +5,7 @@
 // Este sketch controla un display de 4 dígitos y permite:
 // - elegir entre varios tipos de dados (d4, d6, d8, d10, d12, d20 y d100).
 // - lanzar una tirada aleatoria del dado seleccionado.
-// - simular una tirada de iniciativa con dos d10 y reroll en caso de sacar 10.
+// - simular una tirada de iniciativa con dos d10 y reroll en caso de sacar 9 o 10.
 
 // --- Configuración de los pines del display ---
 #define Dig1 6

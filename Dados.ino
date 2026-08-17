@@ -37,8 +37,8 @@ bool esTirada = true;
 
 // --- Pines de los botones ---
 int buttonApin = 12;  // Botón para lanzar el dado.
-int buttonBpin = 0;   // Botón para cambiar el tipo de dado.
-int buttonCpin = 1;   // Botón para lanzar iniciativa.
+int buttonBpin = A2;   // Botón para cambiar el tipo de dado. En el prototipo gasto el 0.
+int buttonCpin = A3;   // Botón para lanzar iniciativa. En el prototipo gasto el 1.
 
 // Estado anterior de cada botón para detectar cambios de estado.
 byte estadoAnteriorA = HIGH;
@@ -64,8 +64,10 @@ void setup() {
   // Activa el puerto serie para depurar si hace falta.
   Serial.begin(9600);
 
-  // El botón A usa la resistencia pull-up interna.
+  // El botón A,B y C usan la resistencia pull-up interna.
   pinMode(buttonApin, INPUT_PULLUP);
+  pinMode(buttonBpin, INPUT_PULLUP);
+  pinMode(buttonCpin, INPUT_PULLUP);
 }
 
 void loop() {
@@ -135,14 +137,14 @@ void botonB() {
   dibujo();
 }
 
-// Realiza una tirada de iniciativa: suma dos d10 con reroll en caso de 10.
+// Realiza una tirada de iniciativa: suma dos d10 con reroll en caso de 9 y 10. Si se quiere usar otro tipo de iniciativa, cambiar aquí.
 void botonC() {
   numero = tiraD10() + tiraD10();
   esTirada = true;
   dibujo();
 }
 
-// Tira un d10. Si sale 10, se vuelve a tirar y se suma el nuevo valor.
+// Tira un d10. Si sale 9 o 10, se vuelve a tirar y se suma el nuevo valor.
 int tiraD10() {
   int resultado = 0;
   int espera;
@@ -152,9 +154,8 @@ int tiraD10() {
   delay(espera);
 
   randomSeed(millis());
-  resultado = random(1, 11);
-
-  if (resultado == 10) {
+  resultado = random(1, 11);  
+  if (resultado == 10 || resultado==9) {
     resultado += tiraD10();
   }
 

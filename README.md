@@ -8,7 +8,7 @@ Programa para Arduino que simula el lanzamiento de distintos tipos de dados. Est
 Características principales:
 - Selección del número de caras del dado (por defecto: 100 caras).
 - Botón para lanzar el dado y mostrar el resultado en la pantalla.
-- Botón para tirar iniciativa según una variante de Rolemaster: lanza 2d10 y suma los resultados; si alguno de los dados obtiene 10, se vuelve a lanzar ese dado y se suma la nueva tirada (repetible si vuelve a sacar 10).
+- Botón para tirar iniciativa según una variante de Rolemaster: lanza 2d10 y suma los resultados; si alguno de los dados obtiene 9 o 10, se vuelve a lanzar ese dado y se suma la nueva tirada (repetible si vuelve a sacar 9 o 10).
 
 
 
@@ -30,7 +30,7 @@ Arduino program that simulates rolling different types of dice. It is designed t
 Main features:
 - Select number of faces for the die (default: 100 faces).
 - Button to roll the die and show the result on the display.
-- Button to roll initiative using a Rolemaster variant: roll 2d10 and sum results; if any die shows 10, that die is re-rolled and the new roll is added to the total (repeatable if 10 occurs again).
+- Button to roll initiative using a Rolemaster variant: roll 2d10 and sum results; if any die shows 9 or 10, that die is re-rolled and the new roll is added to the total (repeatable if 9 or 10 occurs again).
 
 
 

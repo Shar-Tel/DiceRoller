@@ -99,8 +99,5 @@ Button C (Initiative): One terminal to Pin A3 ➔ Other terminal to GND.
 
 <img width="1751" height="1681" alt="esquema" src="https://github.com/user-attachments/assets/956514d7-70ff-427b-aa75-b90d3c54007f" />
 
-License
--------
-Indica la licencia aquí (p. ej. MIT) o añade más detalles del proyecto según sea necesario.
 
 

@@ -98,8 +98,6 @@ Button B (Change dice): One terminal to Pin A2 ➔ Other terminal to GND.
 Button C (Initiative): One terminal to Pin A3 ➔ Other terminal to GND. 
 
 <img width="1751" height="1681" alt="esquema" src="https://github.com/user-attachments/assets/956514d7-70ff-427b-aa75-b90d3c54007f" />
-Image of the device:
-![IMG_20250723_113506](https://github.com/user-attachments/assets/524c102b-7567-4946-8701-4a8f6ecc98ed)
 
 License
 -------

@@ -25,11 +25,12 @@ boolean hon = false;
 #define segE A0
 #define segF 7
 #define segG 8
-#define longDados 7
+//#define longDados 7
 
 // Lista de dados disponibles. El índice elegido se usa para saber
 // cuántas caras tiene el dado.
 int listaDados[] = {4, 6, 8, 10, 12, 20, 100};
+const int longDados = sizeof(listaDados) / sizeof(listaDados[0]);
 int dadoElegido = 6;  // El número de caras del dado elegido, por defecto d100.
 int numero = 0;       // Valor que se va a mostrar en el display.
 // Indica si el valor actual es una tirada o una selección.
@@ -68,6 +69,9 @@ void setup() {
   pinMode(buttonApin, INPUT_PULLUP);
   pinMode(buttonBpin, INPUT_PULLUP);
   pinMode(buttonCpin, INPUT_PULLUP);
+
+  // Inicializa el generador aleatorio una sola vez.
+  randomSeed(analogRead(A1));
 }
 
 void loop() {
@@ -104,20 +108,17 @@ void loop() {
   dibujo();
 }
 
-// Hace una tirada del dado elegido, con varias iteraciones rápidas para dar
-// sensación de animación.
+// Hace una tirada del dado elegido, con varias iteraciones rápidas para hacerlo más aleatorio
 void botonA() {
   int espera;
   int iteraciones;
 
-  randomSeed(millis());
   iteraciones = random(1, 20);
+
   for (int i = 0; i <= iteraciones; i++) {
-    randomSeed(analogRead(1));
     espera = random(1, 100);
     delay(espera);
 
-    randomSeed(millis());
     numero = random(1, listaDados[dadoElegido] + 1);
     esTirada = true;
     dibujo();
@@ -146,20 +147,15 @@ void botonC() {
 
 // Tira un d10. Si sale 9 o 10, se vuelve a tirar y se suma el nuevo valor.
 int tiraD10() {
-  int resultado = 0;
-  int espera;
+  int resultado;
+  int total = 0;
 
-  randomSeed(analogRead(1));
-  espera = random(1, 200);
-  delay(espera);
+  do {
+    resultado = random(1, 11);
+    total += resultado;
+  } while (resultado == 9 || resultado == 10);
 
-  randomSeed(millis());
-  resultado = random(1, 11);  
-  if (resultado == 10 || resultado==9) {
-    resultado += tiraD10();
-  }
-
-  return resultado;
+  return total;
 }
 
 // Dibuja un número concreto en una de las cuatro posiciones del display.
